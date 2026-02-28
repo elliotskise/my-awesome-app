@@ -1,0 +1,30 @@
+import './App.css'
+
+function App() {
+  const today = new Date()
+  const isFirstOfMonth = today.getDate() === 1
+
+  return (
+    <div className="container">
+      <div className="card">
+        <div className="calendar-icon">📅</div>
+        <h1 className="title">
+          {isFirstOfMonth ? "🎉 It's the First of the Month! 🎉" : "Not the First of the Month"}
+        </h1>
+        <p className="date">
+          Today is <strong>{today.toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}</strong>
+        </p>
+        {isFirstOfMonth && (
+          <p className="message">A brand new month has begun. Make it count! 🚀</p>
+        )}
+      </div>
+    </div>
+  )
+}
+
+export default App
